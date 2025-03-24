@@ -3,5 +3,5 @@ __all__ = (
     "CustomResponse",
 )
 
-from .events_schemas import AddEventSchema
 from .custom_response_schema import CustomResponse
+from .events_schemas import AddEventSchema

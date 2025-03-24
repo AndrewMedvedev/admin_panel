@@ -1,9 +1,8 @@
-from litestar import Controller, get, post, delete
-from src.schemas import AddEventSchema
-from src.classes import Events
+from litestar import Controller, delete, get, post
 from litestar.status_codes import HTTP_200_OK
-from src.schemas import CustomResponse
 
+from src.classes import Events
+from src.schemas import AddEventSchema, CustomResponse
 
 
 class EventsController(Controller):
