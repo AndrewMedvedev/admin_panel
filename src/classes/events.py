@@ -4,7 +4,7 @@ from src.config import Settings
 from src.interfaces import EventsBase
 from src.schemas import AddEventSchema, CustomResponse
 
-from .get_data_class import GetData
+from .get_data import GetData
 
 
 class Events(EventsBase):
@@ -18,38 +18,38 @@ class Events(EventsBase):
         self,
         schema: AddEventSchema,
     ) -> CustomResponse:
-        answer = await self.get_data.data_post(
+        result = await self.get_data.data_post(
             params=schema.model_dump(),
             setting=self.settings.EVENTS_ADD,
         )
         return self.response(
             status_code=HTTP_200_OK,
-            body=answer,
+            body=result,
             message="Выполненно",
-            name_endpoint="/api/v1/events/add",
+            name_func="add_events",
         )
 
     async def get_events(self) -> CustomResponse:
-        answer = await self.get_data.data_get_no_params(
-            setting=self.settings.EVENTS_GET
+        result = await self.get_data.data_get(
+            setting=self.settings.EVENTS_GET,
         )
         return self.response(
             status_code=HTTP_200_OK,
-            body=answer,
+            body=result,
             message="Выполненно",
-            name_endpoint="/api/v1/events/get",
+            name_func="get_events",
         )
 
     async def delete_events(
         self,
         event_id: int,
     ) -> CustomResponse:
-        answer = await self.get_data.data_delete(
+        result = await self.get_data.data_delete(
             setting=f"{self.settings.EVENTS_DELETE}{event_id}"
         )
         return self.response(
             status_code=HTTP_200_OK,
-            body=answer,
+            body=result,
             message="Выполненно",
-            name_endpoint="/api/v1/events/delete/{event_id: int}",
+            name_func="delete_events",
         )

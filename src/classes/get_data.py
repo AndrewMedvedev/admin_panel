@@ -40,19 +40,6 @@ class GetData:
             ) as response:
                 return await valid_answer(response=response, name_func="data_get")
 
-    async def data_get_no_params(
-        self,
-        setting: str,
-    ):
-        async with self.session() as session:
-            async with session.get(
-                url=setting,
-                ssl=False,
-            ) as response:
-                return await valid_answer(
-                    response=response, name_func="data_get_no_params"
-                )
-
     async def data_delete(
         self,
         setting: str,

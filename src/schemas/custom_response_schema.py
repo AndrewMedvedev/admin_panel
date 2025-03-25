@@ -7,4 +7,4 @@ class CustomResponse(BaseModel):
     status_code: int
     body: Any
     message: str
-    name_endpoint: str
+    name_func: str

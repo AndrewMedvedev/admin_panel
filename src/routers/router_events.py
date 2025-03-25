@@ -7,6 +7,7 @@ from src.schemas import AddEventSchema, CustomResponse
 
 class EventsController(Controller):
     path = "/api/v1/events"
+    tags = ["Events"]
 
     def __init__(self, owner):
         super().__init__(owner)
