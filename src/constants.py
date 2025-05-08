@@ -1,0 +1,2 @@
+PATH_ENDPOINT = "/api/v1/"
+MIN_STATUS_CODE = 100
