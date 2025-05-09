@@ -6,10 +6,10 @@ from fastapi.responses import JSONResponse, Response
 from ..constants import PATH_ENDPOINT
 from ..controllers import NewsControl
 
-news = APIRouter(prefix=f"{PATH_ENDPOINT}news", tags=["news"])
+news_router = APIRouter(prefix=f"{PATH_ENDPOINT}news", tags=["news"])
 
 
-@news.post("/add/")
+@news_router.post("/add/")
 async def add(
     title: str = Form(),
     body: str = Form(),
@@ -19,13 +19,13 @@ async def add(
     return Response(status_code=status.HTTP_201_CREATED)
 
 
-@news.get("/get/")
+@news_router.get("/get/")
 async def get(page: int = 1, limit: int = 10) -> Response:
     result = await NewsControl().get_news(page=page, limit=limit)
     return JSONResponse(status_code=status.HTTP_200_OK, content=result)
 
 
-@news.delete("/delete/{news_id}")
+@news_router.delete("/delete/{news_id}")
 async def delete(news_id: int) -> Response:
     await NewsControl().delete_news(news_id)
     return Response(status_code=status.HTTP_204_NO_CONTENT)

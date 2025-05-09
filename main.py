@@ -10,7 +10,7 @@ from src.exeptions import (
     JSONError,
 )
 from src.middleware import MiddlewareValidTokens
-from src.routers import events, news
+from src.routers import events_router, news_router
 
 app = FastAPI(title="Admin panel")
 
@@ -60,8 +60,8 @@ app.add_middleware(MiddlewareValidTokens)
 
 
 def include_routers(app: FastAPI):
-    app.include_router(events)
-    app.include_router(news)
+    app.include_router(events_router)
+    app.include_router(news_router)
 
 
 include_routers(app)

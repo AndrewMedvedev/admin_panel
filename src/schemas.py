@@ -13,16 +13,16 @@ class EventSchema(BaseModel):
     points_for_the_event: int | None = None
     limit_people: int | None = None
 
-    def to_dict(self) -> dict:
-        result = {
+    def to_dict(self) -> dict[str, str | int]:
+        result: dict[str, str | int] = {
             "name_event": self.name_event,
             "date_time": self.date_time.isoformat(),
             "location": self.location,
             "description": self.description,
         }
-        if self.limit_people is not None:
-            result["limit_people"] = self.limit_people
         if self.points_for_the_event is not None:
             result["points_for_the_event"] = self.points_for_the_event
+        if self.limit_people is not None:
+            result["limit_people"] = self.limit_people
 
         return result

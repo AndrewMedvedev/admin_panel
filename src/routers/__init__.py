@@ -1,7 +1,7 @@
 __all__ = [
-    "events",
-    "news",
+    "events_router",
+    "news_router",
 ]
 
-from .events import events
-from .news import news
+from .events import events_router
+from .news import news_router

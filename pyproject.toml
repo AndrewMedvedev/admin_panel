@@ -8,7 +8,26 @@ dependencies = [
     "aiohttp>=3.11.18",
     "asyncio>=3.4.3",
     "fastapi[all]>=0.115.12",
+    "mypy>=1.15.0",
     "python-jose>=3.4.0",
     "ruff>=0.11.8",
     "sqlalchemy>=2.0.40",
+    "vulture>=2.14",
+]
+
+# -- MyPy --
+[tool.mypy]
+ignore_missing_imports = true
+exclude = [
+    "__samples__",
+    ".venv"
+]
+
+# -- Vulture --
+[tool.vulture]
+exclude = [
+    ".vscode/",
+    "__samples__/",
+    "tests",
+    ".venv"
 ]

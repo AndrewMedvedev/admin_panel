@@ -1,4 +1,5 @@
 from aiohttp import ClientSession, FormData
+from fastapi import UploadFile
 
 from config import settings
 
@@ -46,9 +47,10 @@ class EventsApi(BaseApi):
 
 
 class NewsApi(BaseApi):
-    async def news_add(self, title: str, body: str, image: bytes | None) -> None:
+    async def news_add(self, title: str, body: str, image: UploadFile | None) -> None:
+        read_img = await image.read() if image is not None else None
         form_data = FormData()
-        form_data.add_field(name="image", value=await image.read(), content_type="image/jpeg")
+        form_data.add_field(name="image", value=read_img, content_type="image/jpeg")
         form_data.add_field("title", title)
         form_data.add_field("body", body)
         async with (

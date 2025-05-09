@@ -3,7 +3,7 @@ from typing import Any
 from .exeptions import BadRequestHTTPError, ExistsHTTPError, NoPlacesHTTPError, NotFoundHTTPError
 
 
-async def valid_answer(response: Any) -> dict:
+async def valid_answer(response: Any) -> None:
     status = response.status
     match status:
         case 200:
