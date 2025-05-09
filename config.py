@@ -16,6 +16,8 @@ config = load_config()
 
 
 class Settings:
+    VALIDATE_TOKENS: str = config["VALIDATE_TOKENS"]
+
     EVENTS_ADD: str = config["EVENTS_ADD"]
     EVENTS_GET: str = config["EVENTS_GET"]
     EVENTS_DELETE: str = config["EVENTS_DELETE"]

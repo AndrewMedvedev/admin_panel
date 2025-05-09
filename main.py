@@ -9,6 +9,7 @@ from src.exeptions import (
     InternalHTTPError,
     JSONError,
 )
+from src.middleware import MiddlewareValidTokens
 from src.routers import events, news
 
 app = FastAPI(title="Admin panel")
@@ -54,6 +55,8 @@ app.add_middleware(
     allow_headers=["*"],
     expose_headers=["*"],
 )
+
+app.add_middleware(MiddlewareValidTokens)
 
 
 def include_routers(app: FastAPI):
