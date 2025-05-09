@@ -4,7 +4,7 @@ WORKDIR /admin_panel
 
 COPY pyproject.toml .
 
-RUN pip install --no-cache-dir -r .
+RUN pip install .
 
 COPY . .
 
