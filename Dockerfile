@@ -1,6 +1,6 @@
 FROM python:3.13-alpine
 
-WORKDIR /admin_panel
+WORKDIR /app
 
 COPY requirements.txt .
 
