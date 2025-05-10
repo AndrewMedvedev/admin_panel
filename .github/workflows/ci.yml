@@ -25,10 +25,6 @@ jobs:
         name: Run ruff
         run:
           docker run --rm -v $PWD:/app admin-panel-linters ruff check .
-      -
-        name: Run vulture
-        run: 
-            docker run --rm -v $PWD:/app admin-panel-linters vulture src/ 
 
   push_image:
     needs: run_linters

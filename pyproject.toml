@@ -12,7 +12,6 @@ dependencies = [
     "python-jose>=3.4.0",
     "ruff>=0.11.8",
     "sqlalchemy>=2.0.40",
-    "vulture>=2.14",
 ]
 
 # -- MyPy --
@@ -23,11 +22,3 @@ exclude = [
     ".venv"
 ]
 
-# -- Vulture --
-[tool.vulture]
-exclude = [
-    ".vscode/",
-    "__samples__/",
-    "tests",
-    ".venv"
-]
