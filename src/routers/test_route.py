@@ -14,6 +14,7 @@ async def test_watchtower() -> str:
 async def fuck() -> str:
     return "niggas i fuck everyone"
 
+
 @test_router.get("/lalalala")
 async def lalalalal() -> str:
     return "lalalala i fuck everyone"
