@@ -4,4 +4,5 @@ SKIP_PATHS = [
     "/docs",
     "/redoc",
     "/openapi.json",
+    "/api/v1/test",
 ]
