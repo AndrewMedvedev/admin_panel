@@ -13,3 +13,8 @@ async def test_watchtower() -> str:
 @test_router.get("/fuck")
 async def fuck() -> str:
     return "niggas i fuck everyone"
+
+
+@test_router.get("/balerinacapuchina")
+async def balerinacapuchina() -> str:
+    return "balerinacapuchina"
