@@ -17,4 +17,4 @@ async def fuck() -> str:
 
 @test_router.get("/balerinacapuchina")
 async def balerinacapuchina() -> str:
-    return "balerinacapuchina"
+    return "balerinacapuchina nigga"
