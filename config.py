@@ -3,28 +3,19 @@ from dotenv import dotenv_values, find_dotenv
 env_path = find_dotenv()
 
 
-def load_config() -> dict:
-    env_path = find_dotenv(".env")
-
-    if not env_path:
-        env_path = find_dotenv(".test.env")
-
-    return dotenv_values(env_path)
-
-
-config = load_config()
+config = dotenv_values(env_path)
 
 
 class Settings:
-    VALIDATE_TOKENS: str = config["VALIDATE_TOKENS"]
+    VALIDATE_TOKENS: str | None = config["VALIDATE_TOKENS"]
 
-    EVENTS_ADD: str = config["EVENTS_ADD"]
-    EVENTS_GET: str = config["EVENTS_GET"]
-    EVENTS_DELETE: str = config["EVENTS_DELETE"]
+    EVENTS_ADD: str | None = config["EVENTS_ADD"]
+    EVENTS_GET: str | None = config["EVENTS_GET"]
+    EVENTS_DELETE: str | None = config["EVENTS_DELETE"]
 
-    NEWS_ADD: str = config["NEWS_ADD"]
-    NEWS_GET: str = config["NEWS_GET"]
-    NEWS_DELETE: str = config["NEWS_DELETE"]
+    NEWS_ADD: str | None = config["NEWS_ADD"]
+    NEWS_GET: str | None = config["NEWS_GET"]
+    NEWS_DELETE: str | None = config["NEWS_DELETE"]
 
 
 settings = Settings()
