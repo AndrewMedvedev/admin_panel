@@ -1,21 +1,20 @@
-from dotenv import dotenv_values, find_dotenv
+import os
 
-env_path = find_dotenv()
+from dotenv import load_dotenv
 
-
-config = dotenv_values(env_path)
+load_dotenv()
 
 
 class Settings:
-    VALIDATE_TOKENS: str | None = config["VALIDATE_TOKENS"]
+    VALIDATE_TOKENS: str | None = os.getenv("VALIDATE_TOKENS")
 
-    EVENTS_ADD: str | None = config["EVENTS_ADD"]
-    EVENTS_GET: str | None = config["EVENTS_GET"]
-    EVENTS_DELETE: str | None = config["EVENTS_DELETE"]
+    EVENTS_ADD: str | None = os.getenv("EVENTS_ADD")
+    EVENTS_GET: str | None = os.getenv("EVENTS_GET")
+    EVENTS_DELETE: str | None = os.getenv("EVENTS_DELETE")
 
-    NEWS_ADD: str | None = config["NEWS_ADD"]
-    NEWS_GET: str | None = config["NEWS_GET"]
-    NEWS_DELETE: str | None = config["NEWS_DELETE"]
+    NEWS_ADD: str | None = os.getenv("NEWS_ADD")
+    NEWS_GET: str | None = os.getenv("NEWS_GET")
+    NEWS_DELETE: str | None = os.getenv("NEWS_DELETE")
 
 
 settings = Settings()
