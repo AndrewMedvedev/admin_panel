@@ -3,13 +3,22 @@ from fastapi import UploadFile
 
 from config import settings
 
-from .utils import valid_answer
+from .utils import valid_answer, valid_answer_html
 
 
 class BaseApi:
     def __init__(self):
         self.settings = settings
         self.clientsession = ClientSession
+
+
+class VisitorsApi(BaseApi):
+    async def verify(self, unique_string: str) -> str:
+        async with (
+            self.clientsession() as session,
+            session.get(url=f"{self.settings.VERIFY_VISITOR}{unique_string}") as data,
+        ):
+            return await valid_answer_html(response=data)
 
 
 class EventsApi(BaseApi):
