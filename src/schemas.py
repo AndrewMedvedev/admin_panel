@@ -13,8 +13,8 @@ class EventSchema(BaseModel):
     points_for_the_event: float | None = None
     limit_people: int | None = None
 
-    def to_dict(self) -> dict[str, str | int]:
-        result: dict[str, str | int] = {
+    def to_dict(self) -> dict[str, str | float]:
+        result: dict[str, str | float] = {
             "name_event": self.name_event,
             "date_time": self.date_time.isoformat(),
             "location": self.location,
