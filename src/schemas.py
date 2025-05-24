@@ -10,7 +10,7 @@ class EventSchema(BaseModel):
     date_time: datetime
     location: str
     description: str
-    points_for_the_event: int | None = None
+    points_for_the_event: float | None = None
     limit_people: int | None = None
 
     def to_dict(self) -> dict[str, str | int]:
